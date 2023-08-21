@@ -39,7 +39,7 @@ public class HomePage extends BasePage {
 
     public void selectApplication(String applicationName) {
         try {
-            Thread.sleep(0);
+            Thread.sleep(5000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }

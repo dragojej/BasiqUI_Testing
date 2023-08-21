@@ -1,76 +1,93 @@
 package com.basiq.ui.tests.pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.ArrayList;
+import java.time.Duration;
+import java.util.List;
 
 public class ConsentPage extends BasePage {
+
+    private String url;
 
     public ConsentPage(WebDriver driver) {
         super(driver);
     }
 
-    public String generateLink() {
-        WebElement btnGenerateLink = driver.findElement(By.xpath("//button[@id='create-connection-button']"));
-        btnGenerateLink.click();
-
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-
-        WebElement link = driver.findElement(By.xpath("//input[@id='input-consentLinkInput']"));
-        return  link.getAttribute("value");
-
+    public ConsentPage(WebDriver driver, String url) {
+        super(driver);
+        this.url = url;
     }
 
-    public void openConsent(String consentLink) {
-        //driver.get("http://yahoo.com");
-        ((JavascriptExecutor)driver).executeScript("window.open()");
-        ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
-        driver.switchTo().window(tabs.get(1));
-        driver.get(consentLink);
+    public void open() {
+        this.driver.get(this.url);
+        this.driver.manage().window().maximize();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(10000));
+        wait.until(ExpectedConditions.numberOfElementsToBe(By.xpath("//div[@id='ui-modal']"), 0));
+    }
+
+    private WebElement getBtnCancel() {
+        return null;
+    }
+
+    private WebElement getBtnApprove() {
         try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
+            WebElement spanApprove = driver.findElement(By.xpath("//span[text()='Approve']"));
+            return spanApprove.findElement(By.xpath(".."));
+        } catch (NoSuchElementException e) {
+            e.printStackTrace();
+            throw (new NoSuchElementException("Element not found"));
         }
     }
 
-    public void deleteUser(String email) {
-        ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
-        driver.switchTo().window(tabs.get(0));
-        WebElement edit = driver.findElement(By.xpath("//span[text()='Edit user']"));
-        WebElement parent = edit.findElement(By.xpath(".."));
-        edit.click();
+    public void approve() {
         try {
             Thread.sleep(5000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-
-        WebElement btnDelete = driver.findElement(By.xpath("//button[@id='remove-user-btn']"));
-        btnDelete.click();
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-        WebElement deleteModal = driver.findElement(By.xpath("//div[@class='modal-dialog']"));
-        //WebElement btnDeleteModal = deleteModal.findElements(By.xpath(".//button")).get(1);
-        WebElement btnDeleteModal = deleteModal.findElement(By.xpath(".//button[@id='remove-user-modal-submit-btn']"));
-        btnDeleteModal.click();
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-
+        WebElement btnApprove = this.getBtnApprove();
+        //WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(10000));
+        //wait.until(ExpectedConditions.elementToBeClickable(btnApprove));
+        btnApprove.click();
     }
 
+    public void loginToBank(String userName, String password) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(60000));
+
+        List<WebElement> loginFields = driver.findElements(By.xpath("//input"));
+
+        loginFields.get(0).sendKeys(userName);
+        loginFields.get(1).sendKeys(password);
+
+        try {
+            Thread.sleep(0);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+        List<WebElement> buttons = driver.findElements(By.xpath("//button"));
+        wait.until(ExpectedConditions.elementToBeClickable(buttons.get(1)));
+        buttons.get(1).click();
+        try {
+            Thread.sleep(0);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+
+        wait.until(ExpectedConditions.textToBePresentInElementLocated(By.className("sc-fKVqWL"), "A SMS code has been sent to your device, please enter valid number."));
+
+        loginFields = driver.findElements(By.xpath("//input"));
+        wait.until(ExpectedConditions.elementToBeClickable(loginFields.get(0)));
+        loginFields.get(0).sendKeys("1234");
+        System.out.println("'");
+        wait.until(ExpectedConditions.elementToBeClickable(driver.findElements(By.xpath("//button")).get(0)));
+        driver.findElements(By.xpath("//button")).get(0).click();
+    }
 
 }

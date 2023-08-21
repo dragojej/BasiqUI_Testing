@@ -9,9 +9,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.List;
 
-public class ConectPage extends BasePage {
-
-    public ConectPage(WebDriver driver) {
+public class ConsentConnectPage extends BasePage {
+    public ConsentConnectPage(WebDriver driver) {
         super(driver);
     }
 
@@ -39,14 +38,14 @@ public class ConectPage extends BasePage {
         }
 
 
-        wait.until(ExpectedConditions.textToBePresentInElementLocated(By.className("sc-fKVqWL"), "A SMS code has been sent to your device, please enter valid number."));
+        //wait.until(ExpectedConditions.textToBePresentInElementLocated(By.className("sc-fKVqWL"), "A SMS code has been sent to your device, please enter valid number."));
 
-        loginFields = driver.findElements(By.xpath("//input"));
+        /*loginFields = driver.findElements(By.xpath("//input"));
         wait.until(ExpectedConditions.elementToBeClickable(loginFields.get(0)));
         loginFields.get(0).sendKeys("1234");
         System.out.println("'");
         wait.until(ExpectedConditions.elementToBeClickable(driver.findElements(By.xpath("//button")).get(0)));
-        driver.findElements(By.xpath("//button")).get(0).click();
+        driver.findElements(By.xpath("//button")).get(0).click();*/
     }
 
     public boolean isConnected() {
@@ -62,24 +61,5 @@ public class ConectPage extends BasePage {
             return false;
         }
     }
-
-    public void clickContinue() {
-        WebElement btnContinue;
-        WebElement span = driver.findElement(By.xpath("//span[text()='Continue']"));
-        btnContinue = span.findElement(By.xpath(".."));
-        btnContinue.click();
-    }
-
-    public void setOtp() {
-        //setovanje koda sa telefona
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(10000));
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@inputmode='numeric']")));
-        WebElement inpPhoneNumber = driver.findElement(By.xpath("//input[@inputmode='numeric']"));
-        inpPhoneNumber.sendKeys("1234");
-    }
-
-
-
-
 
 }
