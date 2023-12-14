@@ -23,8 +23,8 @@ public class Selenium {
         //driver.manage().addCookie(ck);
         //driver.get(authorizationUrl);
 
-        driver.get("https://google.com");
-        driver.findElement(By.name("q")).sendKeys("Selenium");
+        driver.get("https://www.guru99.com/");
+        System.out.println(driver.getCurrentUrl());
         driver.quit();
     }
 
