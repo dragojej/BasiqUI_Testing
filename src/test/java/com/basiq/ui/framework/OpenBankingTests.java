@@ -18,11 +18,11 @@ import org.testng.annotations.Test;
 public class OpenBankingTests extends BaseTest {
 
     //@Test
-    public void verifyOB() {
-        /*System.setProperty("webdriver.chrome.driver", "/Users/Dragoje/Documents/Selenium/chromedriver");
+    /*public void verifyOB() {
+        *//*System.setProperty("webdriver.chrome.driver", "/Users/Dragoje/Documents/Selenium/chromedriver");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
-        ChromeDriver driver = new ChromeDriver(options);*/
+        ChromeDriver driver = new ChromeDriver(options);*//*
 
         LoginPage loginPage = new LoginPage(driver);
         loginPage.open("https://dashboard.basiq.io/login");
@@ -69,10 +69,10 @@ public class OpenBankingTests extends BaseTest {
 
     //@Test
     public void verifyWebConnectionWithOTP() {
-        /*System.setProperty("webdriver.chrome.driver", "/Users/Dragoje/Documents/Selenium/chromedriver");
+        *//*System.setProperty("webdriver.chrome.driver", "/Users/Dragoje/Documents/Selenium/chromedriver");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
-        ChromeDriver driver = new ChromeDriver(options);*/
+        ChromeDriver driver = new ChromeDriver(options);*//*
 
         LoginPage loginPage = new LoginPage(driver);
         loginPage.open("https://dashboard.basiq.io/login");
@@ -116,7 +116,7 @@ public class OpenBankingTests extends BaseTest {
 
         loginPage.close();
 
-        /*VerifyAccountPage verifyAccountPage = new VerifyAccountPage(driver);
+        *//*VerifyAccountPage verifyAccountPage = new VerifyAccountPage(driver);
         verifyAccountPage.continueVerifyAccount("Pied Piper");
 
         ConectPage conectPage = new ConectPage(driver);
@@ -125,7 +125,7 @@ public class OpenBankingTests extends BaseTest {
 
         dashboardConsentPage.deleteUser("drBasiq@gmai.com");
 
-        loginPage.close();*/
+        loginPage.close();*//*
 
     }
 
@@ -205,6 +205,6 @@ public class OpenBankingTests extends BaseTest {
 
         userClient.delete(tokenClientAcces, userId);
 
-    }
+    }*/
 
 }
