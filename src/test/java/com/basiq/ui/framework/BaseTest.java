@@ -10,7 +10,7 @@ import java.io.IOException;
 
 public class BaseTest {
 
-    public ChromeDriver driver;
+    /*public ChromeDriver driver;
 
     @BeforeSuite
     public void createSuite() {
@@ -26,5 +26,5 @@ public class BaseTest {
     public void closeSuite() {
         driver.close();
         driver.quit();
-    }
+    }*/
 }
