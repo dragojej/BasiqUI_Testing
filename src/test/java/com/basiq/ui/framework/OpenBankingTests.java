@@ -146,10 +146,10 @@ public class OpenBankingTests extends BaseTest {
         System.out.println(token2);
         String url = "http://consent.basiq.io/home?token=" + token2;
 
-        System.setProperty("webdriver.chrome.driver", "/Users/Dragoje/Documents/Selenium/chromedriver");
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--remote-allow-origins=*");
-        ChromeDriver driver = new ChromeDriver(options);
+        //System.setProperty("webdriver.chrome.driver", "/Users/Dragoje/Documents/Selenium/chromedriver");
+        //ChromeOptions options = new ChromeOptions();
+        //options.addArguments("--remote-allow-origins=*");
+        //ChromeDriver driver = new ChromeDriver(options);
         DashboardConsentPage dashboardConsentPage = new DashboardConsentPage(driver, url);
         dashboardConsentPage.open();
 

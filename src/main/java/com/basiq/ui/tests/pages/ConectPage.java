@@ -39,7 +39,7 @@ public class ConectPage extends BasePage {
         }
 
 
-        wait.until(ExpectedConditions.textToBePresentInElementLocated(By.className("sc-fKVqWL"), "A SMS code has been sent to your device, please enter valid number."));
+        wait.until(ExpectedConditions.textToBePresentInElementLocated(By.tagName("div"), "A SMS code has been sent to your device, please enter valid number."));
 
         loginFields = driver.findElements(By.xpath("//input"));
         wait.until(ExpectedConditions.elementToBeClickable(loginFields.get(0)));
