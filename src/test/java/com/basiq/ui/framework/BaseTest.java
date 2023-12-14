@@ -14,7 +14,9 @@ public class BaseTest {
 
     @BeforeSuite
     public void createSuite() {
-        System.setProperty("webdriver.chrome.driver", "/Users/Dragoje/Documents/Selenium/chromedriver");
+        String driverPath = System.getProperty("user.dir") + "/src/main/java/drivers/chromedriver";
+        System.setProperty("webdriver.chrome.driver", driverPath);
+        //System.setProperty("webdriver.chrome.driver", "/Users/Dragoje/Documents/Selenium/chromedriver");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
         driver = new ChromeDriver(options);
