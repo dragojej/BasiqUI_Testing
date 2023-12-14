@@ -4,6 +4,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class Selenium {
@@ -25,6 +26,7 @@ public class Selenium {
 
         driver.get("https://www.guru99.com/");
         System.out.println(driver.getCurrentUrl());
+        Assert.assertEquals(driver.getCurrentUrl(), "https://www.guru99TEST.com/");
         driver.quit();
     }
 
