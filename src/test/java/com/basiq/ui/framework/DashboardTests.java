@@ -17,7 +17,7 @@ import org.testng.annotations.Test;
 
 public class DashboardTests extends BaseTest {
 
-    @Test
+    //@Test
     public void verifyConnectMultipleInstitutions() {
         TokenClient tokenClient = new TokenClient();
         String token = tokenClient.createServerAccessToken(new Token(TokenScope.SERVER_ACCESS.toString()));

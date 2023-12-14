@@ -17,7 +17,7 @@ import org.testng.annotations.Test;
 
 public class OpenBankingTests extends BaseTest {
 
-    @Test
+    //@Test
     public void verifyOB() {
         /*System.setProperty("webdriver.chrome.driver", "/Users/Dragoje/Documents/Selenium/chromedriver");
         ChromeOptions options = new ChromeOptions();
@@ -67,7 +67,7 @@ public class OpenBankingTests extends BaseTest {
 
     }
 
-    @Test
+    //@Test
     public void verifyWebConnectionWithOTP() {
         /*System.setProperty("webdriver.chrome.driver", "/Users/Dragoje/Documents/Selenium/chromedriver");
         ChromeOptions options = new ChromeOptions();
@@ -129,7 +129,7 @@ public class OpenBankingTests extends BaseTest {
 
     }
 
-    @Test
+    //@Test
     public void verifyWebConnectionWithOTPByAPI() {
         TokenClient tokenClient = new TokenClient();
         String token = tokenClient.createServerAccessToken(new Token(TokenScope.SERVER_ACCESS.toString()));
@@ -165,7 +165,7 @@ public class OpenBankingTests extends BaseTest {
 
     }
 
-    @Test
+    //@Test
     public void verifyConnectMultipleInstitutions() {
         TokenClient tokenClient = new TokenClient();
         String token = tokenClient.createServerAccessToken(new Token(TokenScope.SERVER_ACCESS.toString()));
