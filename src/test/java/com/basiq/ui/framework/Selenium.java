@@ -21,8 +21,6 @@ public class Selenium {
         //options.addArguments("headless");
         options.addArguments("--remote-allow-origins=*");
         ChromeDriver driver = new ChromeDriver(options);
-        //driver.manage().addCookie(ck);
-        //driver.get(authorizationUrl);
 
         driver.get("https://www.guru99.com/");
         System.out.println(driver.getCurrentUrl());
