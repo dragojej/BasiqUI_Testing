@@ -12,8 +12,8 @@ public class Selenium {
     @Test
     public void openChrome() {
         WebDriverManager.chromedriver().setup();
-        String driverPath = System.getProperty("user.dir") + "/src/main/java/com/basiq/ui/tests/drivers/chromedriver";
-        System.setProperty("webdriver.chrome.driver", driverPath);
+        //String driverPath = System.getProperty("user.dir") + "/src/main/java/com/basiq/ui/tests/drivers/chromedriver";
+        //System.setProperty("webdriver.chrome.driver", driverPath);
         ChromeOptions options = new ChromeOptions();
         //options.addArguments("--no-sandbox");
         //options.addArguments("--disable-dev-shm-usage");
