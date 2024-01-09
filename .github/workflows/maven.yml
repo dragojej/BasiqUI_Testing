@@ -15,11 +15,9 @@ on:
     branches: [ "master" ]
 
 jobs:
- run-tests:
-
-    # runs-on: ubuntu-latest
+  run-tests:
+    # The type of runner that the job will run on, revert to ubuntu-latest if self hosted runner down
     runs-on: self-hosted
-    # runs-on: windows-latest
 
     steps:
     - uses: actions/checkout@v3
