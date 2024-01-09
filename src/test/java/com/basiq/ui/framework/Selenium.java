@@ -25,6 +25,7 @@ public class Selenium {
         driver.get("https://www.guru99.com/");
         System.out.println(driver.getCurrentUrl());
         Assert.assertEquals(driver.getCurrentUrl(), "https://www.guru99.com/");
+        System.out.println("TEST");
         driver.quit();
     }
 
